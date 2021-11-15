@@ -4,7 +4,7 @@ html {
 }
 
 #root-index {
-  background: url("/assets/aaron-burden-9zsHNt5OpqE-unsplash.jpg") bottom;
+  background: url(/assets/aaron-burden-9zsHNt5OpqE-unsplash.jpg) bottom;
   background-size: cover;
 }
 
@@ -18,12 +18,7 @@ html {
 }
 
 .logo {
-  text-align: center;
-  height: 50px;
-  width: 30%;
-  background-color: #adb5bd;
-  border-radius: 50px;
-  padding: 5px;
+  width: 15%;
 }
 
 main {
@@ -42,4 +37,7 @@ h1 {
 header {
   padding: 5px;
   background-color: #86b7fe;
+}
+.dr-br-c {
+  background-color: blue;
 }
