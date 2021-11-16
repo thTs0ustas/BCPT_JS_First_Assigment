@@ -53,7 +53,7 @@ ul {
 /**/
 .home-page {
   font-size: 2rem;
-  background: url("/assets/home_page_img.jpg") no-repeat fixed;
+  background: url("../assets/home_page_img.jpg") no-repeat fixed;
   background-size: cover;
 }
 
