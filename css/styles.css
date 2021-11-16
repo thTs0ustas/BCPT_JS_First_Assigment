@@ -52,6 +52,10 @@ ul {
 
 /**/
 .home-page {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
   font-size: 2rem;
   background: url("../assets/home_page_img.jpg") no-repeat fixed;
   background-size: cover;
@@ -62,6 +66,11 @@ ul {
   color: #e2e3e5;
 }
 
+header {
+  height: 100px;
+  padding: 1rem 1.5rem;
+  background-color: rgba(111, 66, 193, 0.5);
+}
 main > div {
   height: 80vh;
 }
@@ -80,25 +89,12 @@ main > div {
   background-color: #dee8ff !important;
 }
 
-header {
-  height: 9vh;
-  padding: 1rem 1.5rem;
-  background-color: rgba(111, 66, 193, 0.5);
-}
-
 .intro-page {
   background: rgba(0, 0, 0, 0);
 }
 
 .dr-br-c {
   background-color: #2a2a42;
-}
-
-footer {
-  position: relative;
-  background-color: rgba(0, 0, 0, 0.26);
-  height: 11vh;
-  color: #e2e3e5;
 }
 
 main {
@@ -147,9 +143,25 @@ main {
   color: #e2e3e5;
   animation: 0.5s ease-out 0s 1 slideInFromRight;
 }
+@media screen and (max-height: 800px) {
+  .heading1 {
+    left: 15%;
+    top: 260px;
+  }
+  .heading2 {
+    top: 360px;
+  }
+}
 .heading2 {
   opacity: 1;
   right: 100px;
+}
+
+footer {
+  position: relative;
+  background-color: rgba(0, 0, 0, 0.26);
+  height: 11vh;
+  color: #e2e3e5;
 }
 
 footer h2 {
@@ -158,4 +170,70 @@ footer h2 {
   right: 10px;
   width: fit-content;
   text-align: center;
+}
+
+.form-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+}
+
+.form-layout {
+  border-radius: 10px;
+  background-color: #221a32;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 1px 10px black;
+}
+
+.form-title {
+  background-color: #6f42c1;
+  display: flex;
+  border-radius: 5px 5px 0 0;
+  color: #e2e3e5;
+  height: 15%;
+  box-shadow: 1px 0 10px #000;
+
+  align-items: center;
+}
+.form-title h2 {
+  border-radius: 5px 5px 0 0;
+  padding: 0 15px;
+  font-size: 3rem;
+}
+.form-body {
+  height: 70%;
+  display: flex;
+  flex-direction: column;
+  padding: 15px;
+}
+.form-body input {
+  background-color: #4d2ebc;
+  border-radius: 10px;
+  border: none;
+  padding: 2px 15px;
+  margin: 5px;
+}
+.form-footer {
+  border-radius: 0 0 5px 5px;
+  box-shadow: 0 -1px 10px #000;
+
+  background-color: #6f42c1;
+  height: 15%;
+}
+.btn-act {
+  width: 120px;
+  background-color: #4d2ebc;
+  border-radius: 40px;
+  border: none;
+  padding: 2px 15px;
+  margin: 5px;
+  box-shadow: 2px 2px 5px #000;
+  transition: 1ms linear;
+}
+.btn-act:active {
+  box-shadow: 1px 1px 2px #000;
+  transform: translate(3px, 1px);
 }
