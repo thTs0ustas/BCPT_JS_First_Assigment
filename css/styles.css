@@ -129,7 +129,7 @@ main > div {
   background-color: #6f42c1;
   font-size: 7rem;
   position: absolute;
-  left: 10%;
+  left: 20%;
   top: 44%;
   color: #e2e3e5;
   box-shadow: 1px 1px 10px black;
@@ -142,6 +142,7 @@ main > div {
   border-radius: 10px;
   background-color: #c14246;
   font-size: 7rem;
+  right: 20%;
   top: 56%;
   color: #e2e3e5;
   animation: 0.5s ease-out 0s 1 slideInFromRight;

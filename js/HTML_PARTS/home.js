@@ -1,6 +1,6 @@
- const homeHTML = `<div class="headings-container">
-        <h2 class="heading1">PeopleCert</h2>
-        <h2 class="heading2">Education</h2>
-      </div>`
+const homeHTML = `<div class="headings-container">
+        <h2 class="heading1">Private</h2>
+        <h2 class="heading2">School</h2>
+      </div>`;
 
-      export default homeHTML
+export default homeHTML;
