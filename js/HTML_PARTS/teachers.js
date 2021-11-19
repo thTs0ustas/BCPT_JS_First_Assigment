@@ -1,3 +1,5 @@
+import subjects from "../scripts";
+
 const teachersHTML = `<div class="form-container">
         <form id="teachersForm">
           <div class="outer_parts">
@@ -32,19 +34,17 @@ const teachersHTML = `<div class="form-container">
                 </td>
               </tr>
               
-             
               <tr>
                 <td>
                   <label for="subject">Subject</label>
                 </td>
                 <td colspan="2">
                   <select id="subject" required>
-                    <!-- <option value="USA" selected name="county">USA</option>
-                    <option value="2" name="county">2</option>
-                    <option value="3" name="county">3</option>
-                    <option value="4" name="county">4</option>
-                    <option value="5" name="county">5</option>
-                    <option value="6" name="county">6</option> -->
+                    <option value="Subject" selected name="subject">-</option>
+                    <option value="${subjects.javascript}" name="subject">${subjects.javascript}</option>
+                    <option value="${subjects.java}" name="subject">${subjects.java}</option>
+                    <option value="${subjects["C#"]}" name="subject">${subjects["C#"]}</option>
+                    <option value="${subjects.python}" name="subject">${subjects.python}</option>
                   </select>
                 </td>
               </tr>
@@ -70,6 +70,6 @@ const teachersHTML = `<div class="form-container">
             </div>
           </div>
         </form>
-      </div>`
+      </div>`;
 
-export default teachersHTML
+export default teachersHTML;

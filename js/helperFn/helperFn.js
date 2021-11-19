@@ -3,11 +3,14 @@ export const stateReducer = (state, currentState = {}) => ({
   currentState,
 });
 
-export const extractFormValuesAndAddToState = (state, formElements) =>
+export const extractFormValuesAndAddToLocalState = (state, formElements) =>
   stateReducer(
     state,
     (state[formElements.elements[0].value] = [...formElements.elements].reduce(
-      (val, el) => ({ ...val, [el.id]: el.value }),
+      (preVal, currentVal) =>
+        !currentVal.id
+          ? { ...preVal }
+          : { ...preVal, [currentVal.id]: currentVal.value },
       {}
     ))
   );

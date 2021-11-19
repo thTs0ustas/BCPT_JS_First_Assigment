@@ -1,3 +1,8 @@
-// export { homePageFn } from "./homePage";
-// export { studentState, studentFn } from "./studentForm";
-// export { teachersState, teacherFn, subject } from "./teacherForm";
+let subjects = {
+  javascript: "Javascript",
+  java: "Java",
+  ["C#"]: "C#",
+  python: "Python",
+};
+
+export default subjects;

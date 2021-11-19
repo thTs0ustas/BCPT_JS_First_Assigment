@@ -13,6 +13,9 @@ html {
     rgba(217, 10, 113, 0.5)
   );
 }
+.dropdown {
+  z-index: 30;
+}
 
 .logo {
   width: 100%;
@@ -96,6 +99,7 @@ main > div {
 }
 
 .dr-br-c {
+  z-index: 3;
   background-color: #2a2a42;
 }
 
@@ -204,7 +208,7 @@ footer h2 {
 
 .form-container h1 {
   margin-bottom: 0;
-  font-size: 16px;
+  font-size: 20px;
   padding: 10px;
   color: antiquewhite;
 }
@@ -217,6 +221,9 @@ table {
 }
 tr {
   margin-top: 5px;
+}
+td:first-child {
+  width: 30%;
 }
 label {
   text-align: right;
@@ -243,6 +250,7 @@ select {
   border-radius: 5px 5px 0 0;
 }
 .outer_parts:last-child {
+  margin-top: 10px;
   border-radius: 0 0 5px 5px;
   display: flex;
   align-items: center;
