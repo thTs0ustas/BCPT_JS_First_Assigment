@@ -5,11 +5,6 @@ html {
   font-size: 10px;
 }
 
-#root-index {
-  background: url(/assets/aaron-burden-9zsHNt5OpqE-unsplash.jpg) bottom;
-  background-size: cover;
-}
-
 .cnt {
   width: 100vw;
   height: 100vh;
