@@ -19,6 +19,7 @@ const teacherFn = () => {
     extractFormValuesAndAddToLocalState(teachersState, teachersForm);
     stateReducer(rootState, { ...rootState, teachersState });
     printState();
+    teachersForm.reset();
   });
 };
 

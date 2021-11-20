@@ -19,6 +19,7 @@ const courseFn = () => {
     extractFormValuesAndAddToLocalState(courseState, courseForm);
     stateReducer(rootState, { ...rootState, courseState });
     printState();
+    courseForm.reset();
   });
 };
 export { courseState, courseFn };

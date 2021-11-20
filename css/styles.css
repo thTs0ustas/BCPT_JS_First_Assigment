@@ -214,6 +214,7 @@ footer h2 {
 }
 .form {
   background-color: rgba(21, 0, 0, 0.77);
+  border-radius: 0 0 5px 5px;
 }
 table {
   color: #fcf6f6;
@@ -305,4 +306,26 @@ select:nth-child(3) {
 #gender label {
   display: inline;
   width: 25%;
+}
+
+thead {
+}
+th {
+  text-align: center;
+  border-bottom: 1px solid #e2e3e5;
+  width: 20%;
+  padding: 0 5px;
+}
+#table td {
+  padding: 5px 0;
+  font-size: 1.5rem;
+  text-align: center;
+  width: 20%;
+}
+#table button {
+  padding: 0 3px 3px 3px;
+}
+#table img {
+  width: 20px;
+  height: 20px;
 }
