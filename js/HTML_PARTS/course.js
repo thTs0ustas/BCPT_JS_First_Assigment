@@ -74,8 +74,6 @@ const courseHTML = ` <div class="form-container">
                   />
                 </td>
               </tr>
-              
-              
             </table>
             <div class="outer_parts">
               <div class="buttons">

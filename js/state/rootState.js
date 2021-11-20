@@ -11,4 +11,4 @@ rootState = stateReducer(rootState, {
   courseState,
 });
 
-export let printState = () => console.log(rootState);
+export let printState = () => console.log(rootState.currentState);

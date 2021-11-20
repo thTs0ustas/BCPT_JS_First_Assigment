@@ -14,3 +14,20 @@ export const extractFormValuesAndAddToLocalState = (state, formElements) =>
       {}
     ))
   );
+
+export const mapTableRows = (state) =>
+  [
+    Object.keys(state).map(
+      (element) =>
+        `      
+                <tr>
+                    <td>${state[element]["first-name"]}</td>
+                    <td>${state[element]["last-name"]}</td>
+                    <td>${state[element].email}</td>
+                    <td>${state[element]["subject"]}</td>
+                </tr>
+  `
+    ),
+  ]
+    .join("")
+    .trim();
