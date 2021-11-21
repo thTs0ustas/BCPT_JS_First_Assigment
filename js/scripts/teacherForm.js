@@ -6,7 +6,7 @@ import {
 import { printState, rootState } from "../state/rootState.js";
 
 const teachersState = {};
-
+let teacherId = 0;
 const teacherFn = () => {
   document.getElementById("main").innerHTML = teachersHTML;
   document.getElementById("navbar-toggler").ariaExpanded = false;
@@ -16,6 +16,7 @@ const teacherFn = () => {
   const teachersForm = document.getElementById("teachersForm");
   teachersForm.addEventListener("submit", (e) => {
     e.preventDefault();
+
     extractFormValuesAndAddToLocalState(teachersState, teachersForm);
     stateReducer(rootState, { ...rootState, teachersState });
     printState();

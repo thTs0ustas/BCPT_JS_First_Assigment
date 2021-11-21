@@ -1,4 +1,4 @@
-import { stateReducer } from "../helperFn/helperFn.js";
+import { mapTableRows, stateReducer } from "../helperFn/helperFn.js";
 import { studentState } from "../scripts/studentForm.js";
 import { teachersState } from "../scripts/teacherForm.js";
 import { courseState } from "../scripts/courseForm.js";
@@ -12,6 +12,7 @@ export let rootState = {};
 //     subject: "Javascript",
 //   },
 // };
+
 rootState = stateReducer(rootState, {
   studentState,
   teachersState,
