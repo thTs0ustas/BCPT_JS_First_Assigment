@@ -329,3 +329,6 @@ th {
   width: 20px;
   height: 20px;
 }
+td > select {
+  margin-top: 0;
+}

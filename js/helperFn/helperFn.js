@@ -1,3 +1,5 @@
+import subjects from "../scripts";
+
 export const stateReducer = (state, currentState = {}) => ({
   ...state,
   currentState,
@@ -15,37 +17,59 @@ export const extractFormValuesAndAddToLocalState = (state, formElements) =>
     ))
   );
 
-// const deleteRow = (index, state, partToDelete, event) => {
-//   event?.preventDefault();
-//   delete state[partToDelete];
-//   let trIndex = document.getElementsByTagName("tr")[index].rowIndex;
-//
-//   document.getElementById("hTable").deleteRow(trIndex);
-// };
+export const extractTableValuesAndAddToLocalState = (state, tableRowInputs) =>
+  stateReducer(
+    state,
+    (state[tableRowInputs.elements[0].value] = [
+      ...tableRowInputs.elements,
+    ].reduce(
+      (preVal, currentVal) =>
+        !currentVal.id
+          ? { ...preVal }
+          : { ...preVal, [currentVal.id]: currentVal.value },
+      {}
+    ))
+  );
 
-let index = 0;
+export let index = 0;
 export const mapTableRows = (state) =>
   [
     Object.keys(state).map((element) => {
       index++;
-      console.log(index);
-      return `      
-                <tr class="tr_${index - 1}">
-                    <td>${state[element]["first-name"]}</td>
+      return `       <tr id="tr_${index - 1}">
+                    <td id="${state[element]["first-name"]}">${
+        state[element]["first-name"]
+      }</td>
                     <td>${state[element]["last-name"]}</td>
                     <td>${state[element].email}</td>
-                    <td>${state[element]["subject"]}</td>
                     <td>
-                        <button onclick="${(e) =>
-                          e.preventDefault()}"><img src="../../assets/edit-button.png" alt=""></button>
-                        <button 
-                        
-                        ><img src="../../assets/trash.png" alt=""></button>
+                        <select id="editSubj${index}" disabled required>
+                            <option value="Subject" selected name="subject">${
+                              state[element]["subject"]
+                            }</option>
+                             <option value="${
+                               subjects.javascript
+                             }" name="subject">${subjects.javascript}</option>
+                             <option value="${subjects.java}" name="subject">${
+        subjects.java
+      }</option>
+                             <option value="${subjects["C#"]}" name="subject">${
+        subjects["C#"]
+      }</option>
+                             <option value="${
+                               subjects.python
+                             }" name="subject">${subjects.python}</option>
+                  </select>
+                  </td>
+                  <td>
+                        <button id="editButton" type="button"><img src="../../assets/edit-button.png" alt=""></button>
+                        <button type="button"
+                       
+                        ><img id="deleteButton" src="../../assets/trash.png" alt=""></button>
                     </td>
                 </tr>
   `;
     }),
   ]
     .join("")
-    .replace(/,/g, "")
-    .trim();
+    .replace(/,/g, "");
