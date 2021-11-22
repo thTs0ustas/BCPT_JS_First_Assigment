@@ -17,7 +17,7 @@ const studentFn = () => {
   studentsForm.addEventListener("submit", (e) => {
     e.preventDefault();
     extractFormValuesAndAddToLocalState(studentState, studentsForm);
-    stateReducer(rootState, { ...rootState, studentState });
+    stateReducer("studentState", rootState, { ...studentState, studentState });
     printState();
   });
 };

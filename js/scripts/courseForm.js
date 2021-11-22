@@ -17,7 +17,7 @@ const courseFn = () => {
   courseForm.addEventListener("submit", (e) => {
     e.preventDefault();
     extractFormValuesAndAddToLocalState(courseState, courseForm);
-    stateReducer(rootState, { ...rootState, courseState });
+    stateReducer("courseState", rootState, { ...courseState, courseState });
     printState();
     courseForm.reset();
   });

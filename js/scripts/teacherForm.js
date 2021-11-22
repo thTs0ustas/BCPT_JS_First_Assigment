@@ -18,7 +18,10 @@ const teacherFn = () => {
     e.preventDefault();
 
     extractFormValuesAndAddToLocalState(teachersState, teachersForm);
-    stateReducer(rootState, { ...rootState, teachersState });
+    stateReducer("teachersState", teachersState, {
+      ...teachersState,
+      teachersState,
+    });
     printState();
     teachersForm.reset();
   });

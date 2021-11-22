@@ -1,35 +1,32 @@
 import subjects from "../scripts";
+import { rootState } from "../state/rootState.js";
 
-export const stateReducer = (state, currentState = {}) => ({
-  ...state,
-  currentState,
-});
+export const stateReducer = (stateKey, state, currentState = {}) => {
+  rootState.setItem(stateKey, JSON.stringify({ ...currentState[stateKey] }));
+};
 
 export const extractFormValuesAndAddToLocalState = (state, formElements) =>
-  stateReducer(
-    state,
-    (state[formElements.elements[0].value] = [...formElements.elements].reduce(
-      (preVal, currentVal) =>
-        !currentVal.id
-          ? { ...preVal }
-          : { ...preVal, [currentVal.id]: currentVal.value },
-      {}
-    ))
-  );
+  (state[formElements.elements[0].value] = [...formElements.elements].reduce(
+    (preVal, currentVal) =>
+      !currentVal.id
+        ? { ...preVal }
+        : { ...preVal, [currentVal.id]: currentVal.value },
+    {}
+  ));
 
-export const extractTableValuesAndAddToLocalState = (state, tableRowInputs) =>
-  stateReducer(
-    state,
-    (state[tableRowInputs.elements[0].value] = [
-      ...tableRowInputs.elements,
-    ].reduce(
-      (preVal, currentVal) =>
-        !currentVal.id
-          ? { ...preVal }
-          : { ...preVal, [currentVal.id]: currentVal.value },
-      {}
-    ))
-  );
+// export const extractTableValuesAndAddToLocalState = (state, tableRowInputs) =>
+//   stateReducer(
+//     state,
+//     (state[tableRowInputs.elements[0].value] = [
+//       ...tableRowInputs.elements,
+//     ].reduce(
+//       (preVal, currentVal) =>
+//         !currentVal.id
+//           ? { ...preVal }
+//           : { ...preVal, [currentVal.id]: currentVal.value },
+//       {}
+//     ))
+//   );
 
 export const deleteRow = (id, state) => {
   try {
@@ -54,12 +51,12 @@ export const deleteRow = (id, state) => {
 };
 
 export const mapTableRows = (state) => {
-  let table = document.getElementById("table");
-  if (table?.rows)
-    return table?.rows
-      .map((_, i) => [
-        Object.keys(state).map((element) => {
-          return `<tr id="tr_${i}">
+  let index = 0;
+  return [
+    Object.keys(state)
+      .map((element, i) => {
+        index = i;
+        return `<tr id="tr_${i}">
                     <td id="${state[element]["first-name"]}">${state[element]["first-name"]}</td>
                     <td>${state[element]["last-name"]}</td>
                     <td>${state[element].email}</td>
@@ -78,9 +75,9 @@ export const mapTableRows = (state) => {
                     </td>
                 </tr>
   `;
-        }),
-      ])
+      })
       .join("")
-      .replace(/,/g, "");
-  else return [];
+      .replace(/,/g, ""),
+    index,
+  ];
 };
