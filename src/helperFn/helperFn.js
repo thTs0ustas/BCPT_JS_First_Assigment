@@ -22,7 +22,7 @@ export const deleteRow = (id, state) => {
       const row = table.rows[i];
       const rowObj = row.cells[4].childNodes[3];
       const rowObjName = row.cells[0].id;
-      console.log(rowObj);
+
       if (rowObj.id === id) {
         table.deleteRow(i);
         // eslint-disable-next-line no-unused-vars

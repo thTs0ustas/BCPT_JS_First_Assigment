@@ -1,11 +1,13 @@
-import subjects from "../scripts";
+import subjects from "../functions/index.js";
 
-const studentHTML = /* HTML */ `
-  <div class="form-container">
-    <form id="studentsForm">
+const teachersHTML =
+  /* HTML */
+  `<div class="form-container">
+    <form id="teachersForm">
       <div class="outer_parts">
-        <h1>Student Registration</h1>
+        <h1>Trainer Registration</h1>
       </div>
+
       <div class="form">
         <table>
           <tr>
@@ -14,6 +16,7 @@ const studentHTML = /* HTML */ `
             </td>
             <td colspan="2">
               <input
+                required
                 type="text"
                 id="first-name"
                 placeholder="Enter First Name...."
@@ -26,15 +29,17 @@ const studentHTML = /* HTML */ `
             </td>
             <td colspan="2">
               <input
+                required
                 type="text"
                 id="last-name"
                 placeholder="Enter Last Name...."
               />
             </td>
           </tr>
+
           <tr>
             <td>
-              <label for="Subject">Lesson Selection</label>
+              <label for="subject">Subject</label>
             </td>
             <td colspan="2">
               <select id="subject" required>
@@ -60,8 +65,8 @@ const studentHTML = /* HTML */ `
             </td>
             <td colspan="2">
               <input
-                type="email"
                 required
+                type="email"
                 id="email"
                 placeholder="Enter Email...."
               />
@@ -76,7 +81,6 @@ const studentHTML = /* HTML */ `
         </div>
       </div>
     </form>
-  </div>
-`;
+  </div>`;
 
-export default studentHTML;
+export default teachersHTML;

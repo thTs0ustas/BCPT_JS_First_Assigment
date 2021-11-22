@@ -1,8 +1,9 @@
-import { homePageFn } from "./scripts/homePage.js";
-import { studentFn } from "./scripts/studentForm.js";
-import { teacherFn } from "./scripts/teacherForm.js";
-import { courseFn } from "./scripts/courseForm.js";
-import { teacherEditFormFn } from "./scripts/teachersEditForm.js";
+import { homePageFn } from "./functions/homePage.js";
+import { studentFn } from "./functions/studentForm.js";
+import { teacherFn } from "./functions/teacherForm.js";
+import { courseFn } from "./functions/courseForm.js";
+import { teacherEditFormFn } from "./functions/teachersEditForm.js";
+import { rootState } from "./state/rootState.js";
 
 document.addEventListener("DOMContentLoaded", () => teacherEditFormFn());
 
@@ -24,3 +25,4 @@ document
 document
   .getElementsByClassName("student")[0]
   .addEventListener("click", () => studentFn());
+console.log(rootState);

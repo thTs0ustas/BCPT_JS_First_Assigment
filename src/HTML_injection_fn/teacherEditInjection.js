@@ -1,4 +1,4 @@
-import subjects from "../scripts";
+import subjects from "../functions";
 
 export const mapTableRows = (state) => {
   let index = 0;
