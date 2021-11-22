@@ -3,10 +3,10 @@ import {
   extractFormValuesAndAddToLocalState,
   stateReducer,
 } from "../helperFn/helperFn.js";
-import { printState, rootState } from "../state/rootState.js";
+import { printState } from "../state/rootState.js";
 
 const teachersState = {};
-let teacherId = 0;
+
 const teacherFn = () => {
   document.getElementById("main").innerHTML = teachersHTML;
   document.getElementById("navbar-toggler").ariaExpanded = false;
