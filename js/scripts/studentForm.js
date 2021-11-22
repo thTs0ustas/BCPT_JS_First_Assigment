@@ -14,6 +14,7 @@ const studentFn = () => {
   document.getElementById("navbarNavDropdown").classList.remove("show");
 
   let studentsForm = document.getElementById("studentsForm");
+
   studentsForm.addEventListener("submit", (e) => {
     e.preventDefault();
     extractFormValuesAndAddToLocalState(studentState, studentsForm);

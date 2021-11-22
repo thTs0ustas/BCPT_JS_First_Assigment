@@ -31,7 +31,7 @@ main {
   display: flex;
   align-content: center;
   margin: 0 auto;
-  width: 630px;
+  width: 650px;
   justify-content: center;
 }
 nav {
@@ -317,10 +317,11 @@ th {
   padding: 0 5px;
 }
 #table td {
+  overflow: hidden;
   padding: 5px 0;
   font-size: 1.5rem;
   text-align: center;
-  width: 20%;
+  max-width: 20%;
 }
 #table button {
   padding: 0 3px 3px 3px;
@@ -330,5 +331,9 @@ th {
   height: 20px;
 }
 td > select {
+  margin-top: 15px;
+  padding: 8px;
+}
+.subject {
   margin-top: 0;
 }

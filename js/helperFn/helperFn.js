@@ -13,32 +13,19 @@ export const extractFormValuesAndAddToLocalState = (state, formElements) =>
     {}
   ));
 
-// export const extractTableValuesAndAddToLocalState = (state, tableRowInputs) =>
-//   stateReducer(
-//     state,
-//     (state[tableRowInputs.elements[0].value] = [
-//       ...tableRowInputs.elements,
-//     ].reduce(
-//       (preVal, currentVal) =>
-//         !currentVal.id
-//           ? { ...preVal }
-//           : { ...preVal, [currentVal.id]: currentVal.value },
-//       {}
-//     ))
-//   );
-
 export const deleteRow = (id, state) => {
   try {
-    let table = document.getElementById("table");
+    const table = document.getElementById("table");
 
     let rowCount = table.rows.length;
     for (let i = 0; i < rowCount; i++) {
-      let row = table.rows[i];
-      let rowObj = row.cells[4].childNodes[3];
-      let rowObjName = row.cells[0].id;
+      const row = table.rows[i];
+      const rowObj = row.cells[4].childNodes[3];
+      const rowObjName = row.cells[0].id;
       console.log(rowObj);
       if (rowObj.id === id) {
         table.deleteRow(i);
+        // eslint-disable-next-line no-unused-vars
         const { [rowObjName]: remove, ...rest } = state;
         rowCount--;
         return rest;
