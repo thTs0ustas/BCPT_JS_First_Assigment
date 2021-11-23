@@ -5,7 +5,7 @@ import { courseFn } from "./functions/courseForm.js";
 import { teacherEditFormFn } from "./functions/teachersEditForm.js";
 import { rootState } from "./state/rootState.js";
 
-document.addEventListener("DOMContentLoaded", () => teacherEditFormFn());
+document.addEventListener("DOMContentLoaded", () => homePageFn());
 
 document
   .getElementsByClassName("navbar-brand")[0]

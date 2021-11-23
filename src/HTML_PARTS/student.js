@@ -1,6 +1,4 @@
-import subjects from "../functions";
-
-const studentHTML = /* HTML */ `
+const studentHTML = (courses) => /* HTML */ `
   <div class="form-container">
     <form id="studentsForm">
       <div class="outer_parts">
@@ -34,24 +32,26 @@ const studentHTML = /* HTML */ `
           </tr>
           <tr>
             <td>
-              <label for="Subject">Lesson Selection</label>
+              <label for="courses">Lesson Selection</label>
             </td>
             <td colspan="2">
-              <select id="subject" required>
-                <option value="" selected name="subject">-</option>
-                <option value="${subjects.javascript}" name="subject">
-                  ${subjects.javascript}
-                </option>
-                <option value="${subjects.java}" name="subject">
-                  ${subjects.java}
-                </option>
-                <option value="${subjects["C#"]}" name="subject">
-                  ${subjects["C#"]}
-                </option>
-                <option value="${subjects.python}" name="subject">
-                  ${subjects.python}
-                </option>
+              <select id="courses" required>
+                <option value="" selected name="courses">-</option>
+                ${Object.keys(courses).map(
+                  (course) =>
+                    `<option value="${course}" name="courses">
+                  ${course}
+                </option>`
+                )}
               </select>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <label for="fee">Tuition Fee</label>
+            </td>
+            <td colspan="2">
+              <input type="text" value="0.00 €" disabled id="fee" />
             </td>
           </tr>
           <tr>
