@@ -35,3 +35,23 @@ export const deleteRow = (id, state) => {
     console.error(e);
   }
 };
+
+export const pullDataFromCourse = (state, id) => {
+  let selectedCourse = document?.getElementById(id);
+  let value = selectedCourse?.options[selectedCourse.selectedIndex].value;
+  for (let prop in state[value]) {
+    console.log(state[value][prop]);
+    let elementProp = document?.getElementById(prop);
+
+    if (prop !== "stream" && prop !== "type")
+      elementProp?.setAttribute("value", state[value][prop]);
+    else {
+      [...elementProp].forEach((node, i) => {
+        if (node && node.value === state[value][prop] && elementProp[i]) {
+          console.log(elementProp[i].value);
+          elementProp[i].selected = "selected";
+        }
+      });
+    }
+  }
+};
