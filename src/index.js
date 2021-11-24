@@ -5,6 +5,7 @@ import { courseFn } from "./functions/courseForm.js";
 import { teacherEditFormFn } from "./functions/teachersEditForm.js";
 import { studentEditFormFn } from "./functions/studentEditForm.js";
 import { rootState } from "./state/rootState.js";
+import { aboutUsFn } from "./functions/aboutUs.js";
 
 document.addEventListener("DOMContentLoaded", () => homePageFn());
 
@@ -29,4 +30,7 @@ document
 document
   .getElementsByClassName("studentEdit")[0]
   .addEventListener("click", () => studentEditFormFn());
+document
+  .getElementsByClassName("aboutUs")[0]
+  .addEventListener("click", () => aboutUsFn());
 console.log(rootState);

@@ -41,7 +41,7 @@ export const mapTableStudentRows = (state, stateParts) => {
         `;
       })
       .join("")
-      .replace(/,/g, ""),
+      .replace(/,\s/g, ""),
     index,
   ];
 };

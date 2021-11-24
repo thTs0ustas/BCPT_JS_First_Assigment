@@ -1,6 +1,6 @@
 import subjects from "../functions";
 
-const courseHTML = (state = {}, conditional = false) => /* HTML */ ` <div
+const courseHTML = ({ state, cond }) => /* HTML */ ` <div
   class="form-container"
 >
   <form id="courseForm">
@@ -13,8 +13,9 @@ const courseHTML = (state = {}, conditional = false) => /* HTML */ ` <div
           <td>
             <label for="courseName">Course Name</label>
           </td>
+
           <td colspan="2">
-            ${!conditional
+            ${!cond
               ? `<select id="courses" required>
                   <option value="" selected name="courses">
                     -
@@ -34,12 +35,13 @@ const courseHTML = (state = {}, conditional = false) => /* HTML */ ` <div
                 />`}
           </td>
         </tr>
+
         <tr>
           <td>
             <label for="stream">Stream</label>
           </td>
           <td colspan="2">
-            <select id="stream" ${!conditional ? "disabled" : ""} required>
+            <select id="stream" ${!cond ? "disabled" : ""} required>
               <option value="" disabled selected name="stream">-</option>
               <option value="${subjects.javascript}" name="stream">
                 ${subjects.javascript}
@@ -56,6 +58,7 @@ const courseHTML = (state = {}, conditional = false) => /* HTML */ ` <div
             </select>
           </td>
         </tr>
+
         <tr>
           <td>
             <label for="type">Type</label>
@@ -63,7 +66,7 @@ const courseHTML = (state = {}, conditional = false) => /* HTML */ ` <div
           <td colspan="2">
             <select
               id="type"
-              ${!conditional ? "disabled" : ""}
+              ${!cond ? "disabled" : ""}
               readonly="true"
               required
             >
@@ -81,7 +84,7 @@ const courseHTML = (state = {}, conditional = false) => /* HTML */ ` <div
           <td colspan="2">
             <input
               type="currency"
-              ${!conditional ? "disabled" : ""}
+              ${!cond ? "disabled" : ""}
               step="any"
               min="1"
               required
@@ -97,7 +100,7 @@ const courseHTML = (state = {}, conditional = false) => /* HTML */ ` <div
           <td colspan="2">
             <input
               type="date"
-              ${!conditional ? "disabled" : ""}
+              ${!cond ? "disabled" : ""}
               required
               id="startingDate"
             />
@@ -111,7 +114,7 @@ const courseHTML = (state = {}, conditional = false) => /* HTML */ ` <div
           <td colspan="2">
             <input
               type="date"
-              ${!conditional ? "disabled" : ""}
+              ${!cond ? "disabled" : ""}
               required
               id="endDate"
             />
@@ -119,11 +122,11 @@ const courseHTML = (state = {}, conditional = false) => /* HTML */ ` <div
         </tr>
       </table>
       <div class="outer_parts">
-        <button ${conditional ? "disabled" : ""} id="addNew" type="button">
+        <button ${cond ? "disabled" : ""} id="addNew" type="button">
           Add New
         </button>
         <div class="buttons">
-          ${conditional
+          ${cond
             ? `<button type="submit">Submit</button>`
             : `<button id='editForm' type="button">Edit</button>`}
           <button type="reset">Cancel</button>

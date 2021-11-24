@@ -31,7 +31,8 @@ main {
   display: flex;
   align-content: center;
   margin: 0 auto;
-  width: 650px;
+  min-width: 650px;
+  width: 720px;
   justify-content: center;
 }
 nav {
@@ -135,7 +136,7 @@ main > div {
   background-color: #6f42c1;
   font-size: 7rem;
   position: absolute;
-  left: 20%;
+  left: 25%;
   top: 44%;
   color: #e2e3e5;
   box-shadow: 1px 1px 10px black;
@@ -148,7 +149,7 @@ main > div {
   border-radius: 10px;
   background-color: #c14246;
   font-size: 7rem;
-  right: 20%;
+  right: 25%;
   top: 56%;
   color: #e2e3e5;
   animation: 0.5s ease-out 0s 1 slideInFromRight;
@@ -162,23 +163,19 @@ main > div {
     top: 360px;
   }
 }
-.heading2 {
-  opacity: 1;
-  right: 100px;
-}
 
 footer {
   position: relative;
   background-color: rgba(0, 0, 0, 0.26);
-  height: 11vh;
+  height: 5vh;
   color: #e2e3e5;
 }
 
-footer h2 {
+footer p {
   position: absolute;
-  bottom: 5px;
+  font-size: 1rem;
   right: 10px;
-  width: fit-content;
+  bottom: 2px;
   text-align: center;
 }
 
@@ -247,7 +244,7 @@ select {
 input:disabled,
 select:disabled {
   opacity: 1;
-  background-color: #a42525;
+  background-color: rgba(42, 76, 114, 0.55);
   color: #ffffff;
 }
 #fee {
@@ -349,4 +346,67 @@ td > select {
 }
 .subject {
   margin-top: 0;
+}
+
+/*About us*/
+
+.about-section {
+  background-size: 55%;
+  width: 100vw;
+
+  height: 100%;
+  padding: 100px 0;
+}
+
+.inner-container {
+  width: 55%;
+  float: right;
+  background: url("../assets/0_1PEO3pjtOGeOJoXD.jpg") no-repeat center;
+  background-size: cover;
+
+  padding: 150px;
+  box-shadow: rgba(14, 30, 37, 0.12) 0 2px 4px 0,
+    rgba(14, 30, 37, 0.32) 0 2px 16px 0;
+  border-radius: 10px;
+}
+.inner-container h1 {
+  margin-bottom: 30px;
+  font-size: 30px;
+  font-weight: 900;
+}
+
+.text {
+  font-size: 16px;
+  color: #ffffff;
+  line-height: 30px;
+  text-align: justify;
+  margin-bottom: 40px;
+}
+h1 {
+  color: #f85370;
+}
+
+.skills {
+  display: flex;
+  justify-content: space-between;
+  font-weight: 700;
+  font-size: 13px;
+}
+
+@media screen and (max-width: 4000px) {
+  .about-section {
+    background-size: 100%;
+    padding: 100px 40px;
+  }
+  .inner-container {
+    width: 100%;
+  }
+}
+
+span {
+  cursor: pointer;
+  font-size: 16px;
+  text-align: center;
+  padding: 10px;
+  width: 500px;
 }

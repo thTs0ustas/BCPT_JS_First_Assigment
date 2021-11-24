@@ -39,8 +39,8 @@ export const deleteRow = (id, state) => {
 export const pullDataFromCourse = (state, id) => {
   let selectedCourse = document?.getElementById(id);
   let value = selectedCourse?.options[selectedCourse.selectedIndex].value;
+
   for (let prop in state[value]) {
-    console.log(state[value][prop]);
     let elementProp = document?.getElementById(prop);
 
     if (prop !== "stream" && prop !== "type")
@@ -54,4 +54,74 @@ export const pullDataFromCourse = (state, id) => {
       });
     }
   }
+};
+
+export const editSubjectTab = (index, options = {}) => {
+  let { tableNode, cell } = options;
+  for (let i = 0; i <= index; i++) {
+    document
+      .getElementById(`${options.buttonId}${i}`)
+      ?.addEventListener(options.eventType, () => {
+        let selectCell = tableNode.rows[i].cells[cell].childNodes[1].disabled;
+        if (selectCell) {
+          tableNode.rows[i].cells[cell].childNodes[1].disabled = false;
+        } else {
+          tableNode.rows[i].cells[cell].childNodes[1].disabled = true;
+
+          let rowObjName = tableNode.rows[i].cells[0].id;
+          let subjName = tableNode.rows[i].cells[cell].childNodes[1].name;
+          let subjVal = tableNode.rows[i].cells[cell].childNodes[1].value;
+          let localState = options.state;
+
+          stateReducer(options.stateKey, localState, {
+            teachersState: {
+              ...localState,
+              [rowObjName]: {
+                ...localState[rowObjName],
+                [subjName]: subjVal,
+              },
+            },
+          });
+        }
+      });
+  }
+};
+
+export const closeNavBar = (html) => {
+  document.getElementById("main").innerHTML = html;
+  document.getElementById("navbar-toggler").ariaExpanded = false;
+  document.getElementById("navbar-toggler").classList.add("collapsed");
+  document.getElementById("navbarNavDropdown").classList.remove("show");
+};
+
+export const deleteRowFn = (index, options = {}) => {
+  const { callback, buttonId, eventType, state, stateKey } = options;
+  for (let i = 0; i <= index; i++) {
+    document
+      .getElementById(`${buttonId}${i}`)
+      ?.addEventListener(eventType, () => {
+        ``;
+        let remainingRows = callback(`${buttonId}${i}`, state);
+
+        stateReducer(stateKey, rootState, {
+          ...state,
+          teachersState: remainingRows,
+        });
+      });
+  }
+};
+
+export let changeCondAndRef = (options) => {
+  let { setItem, mainDir, callback } = options;
+
+  rootState.setItem(
+    `${setItem}`,
+    JSON.stringify(JSON.parse(rootState.conditional) !== true)
+  );
+
+  mainDir.innerHTML = callback({
+    state: JSON.parse(rootState.courseState),
+    cond: JSON.parse(rootState.conditional),
+  });
+  callback();
 };
