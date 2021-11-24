@@ -8,24 +8,24 @@ const studentHTML = (courses) => /* HTML */ `
         <table>
           <tr>
             <td>
-              <label for="first-name">First Name</label>
+              <label for="firstName">First Name</label>
             </td>
             <td colspan="2">
               <input
                 type="text"
-                id="first-name"
+                id="firstName"
                 placeholder="Enter First Name...."
               />
             </td>
           </tr>
           <tr>
             <td>
-              <label for="last-name">Last Name</label>
+              <label for="lastName">Last Name</label>
             </td>
             <td colspan="2">
               <input
                 type="text"
-                id="last-name"
+                id="lastName"
                 placeholder="Enter Last Name...."
               />
             </td>
@@ -46,6 +46,15 @@ const studentHTML = (courses) => /* HTML */ `
               </select>
             </td>
           </tr>
+          <tr>
+            <td>
+              <label for="dateOfBirth">Date Of Birth</label>
+            </td>
+            <td colspan="2">
+              <input type="date" required id="dateOfBirth" />
+            </td>
+          </tr>
+
           <tr>
             <td>
               <label for="fee">Tuition Fee</label>

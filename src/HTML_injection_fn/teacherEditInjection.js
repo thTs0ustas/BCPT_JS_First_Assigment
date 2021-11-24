@@ -7,10 +7,8 @@ export const mapTableRows = (state) => {
       .map((element, i) => {
         index = i;
         return /* HTML */ `<tr id="tr_${i}">
-          <td id="${state[element]["first-name"]}">
-            ${state[element]["first-name"]}
-          </td>
-          <td>${state[element]["last-name"]}</td>
+          <td id="${state[element].firstName}">${state[element].firstName}</td>
+          <td>${state[element].lastName}</td>
           <td>${state[element].email}</td>
           <td>
             <select

@@ -13,7 +13,9 @@ export const currencyFormat = (event) => {
     value || value === 0
       ? localStringToNumber(value).toLocaleString("de-DE", {
           maximumFractionDigits: 2,
+
           currency: "EUR",
+
           style: "currency",
         })
       : "";

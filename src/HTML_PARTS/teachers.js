@@ -12,26 +12,26 @@ const teachersHTML =
         <table>
           <tr>
             <td>
-              <label for="first-name">First Name</label>
+              <label for="firstName">First Name</label>
             </td>
             <td colspan="2">
               <input
                 required
                 type="text"
-                id="first-name"
+                id="firstName"
                 placeholder="Enter First Name...."
               />
             </td>
           </tr>
           <tr>
             <td>
-              <label for="last-name">Last Name</label>
+              <label for="lastName">Last Name</label>
             </td>
             <td colspan="2">
               <input
                 required
                 type="text"
-                id="last-name"
+                id="lastName"
                 placeholder="Enter Last Name...."
               />
             </td>
