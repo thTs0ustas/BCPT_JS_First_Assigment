@@ -34,7 +34,7 @@ const studentFn = () => {
   studentsForm.addEventListener("submit", (e) => {
     e.preventDefault();
     extractFormValuesAndAddToLocalState(studentState, studentsForm);
-    stateReducer("studentState", rootState, { ...studentState, studentState });
+    stateReducer("studentState", { ...studentState, studentState });
     document.getElementById("fee").setAttribute("value", "0,00 €");
     studentsForm.reset();
   });

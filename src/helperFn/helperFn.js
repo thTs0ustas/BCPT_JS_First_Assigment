@@ -88,7 +88,7 @@ export const deleteRow = (id, state, cell) => {
       }
     }
   } catch (e) {
-    console.error(e);
+    console.log(e);
   }
 };
 

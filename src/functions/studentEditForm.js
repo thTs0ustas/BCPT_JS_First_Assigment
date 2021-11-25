@@ -32,7 +32,8 @@ const studentEditFormFn = () => {
     state: JSON.parse(rootState.studentState),
     stateKey: "studentState",
   };
-  deleteRowFn(index, deleteRowOptions, 5);
+
+  deleteRowFn(index, deleteRowOptions, 4);
   // for (let i = 0; i <= index; i++) {
   //   document.getElementById(`delete${i}`)?.addEventListener("click", () => {
   //     let remainingRows = deleteRow(
@@ -56,7 +57,6 @@ const studentEditFormFn = () => {
   //   tableNode: table,
   //   buttonId: "editButton",
   //   eventType: "click",
-  //   state: JSON.parse(rootState.studentState),
   //   stateKey: "studentState",
   // };
   // editSubjectTab(index, editTabsOptions);
@@ -72,7 +72,7 @@ const studentEditFormFn = () => {
         let subjVal = table.rows[i].cells[2].childNodes[1].value;
         let localState = JSON.parse(rootState.studentState);
         console.log(rowObjName);
-        stateReducer("studentState", JSON.parse(rootState.studentState), {
+        stateReducer("studentState", {
           studentState: {
             ...localState,
             [rowObjName]: {
