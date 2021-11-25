@@ -1,4 +1,4 @@
-export let rootState = window.sessionStorage;
+export let rootState = window.localStorage;
 
 const mockUpStudent = {
   Thanos: {
@@ -20,7 +20,6 @@ const mockUpTeacher = {
 };
 const mockUpCourse = {
   Java: {
-    addNew: "",
     cost: "2.555,00 €",
     courseName: "Java",
     endDate: "2021-12-05",

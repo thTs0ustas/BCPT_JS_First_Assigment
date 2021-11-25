@@ -123,13 +123,11 @@ const courseHTML = ({ state, cond }) => /* HTML */ ` <div
         </tr>
       </table>
       <div class="outer_parts">
-        <button ${cond ? "disabled" : ""} id="addNew" type="button">
+        <button ${cond ? "disabled" : ""} class="addNew" type="button">
           Add New
         </button>
         <div class="buttons">
-          ${cond
-            ? `<button type="submit">Submit</button>`
-            : `<button id='editForm' type="button">Edit</button>`}
+          <button class="submit" type="submit">Submit</button>
           <button type="reset">Cancel</button>
         </div>
       </div>
