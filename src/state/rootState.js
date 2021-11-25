@@ -6,7 +6,7 @@ const mockUpStudent = {
     dateOfBirth: "2021-11-27",
     email: "th.ts0ustas@gmail.com",
     fee: "256,00 €",
-    firstName: "thanos",
+    firstName: "Thanos",
     lastName: "tsou",
   },
 };

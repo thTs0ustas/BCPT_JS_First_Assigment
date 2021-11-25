@@ -5,7 +5,7 @@ import {
   stateReducer,
 } from "../helperFn/helperFn.js";
 
-const teachersState = {};
+const teachersState = [];
 
 const teacherFn = () => {
   closeNavBar(teachersHTML);
@@ -14,7 +14,7 @@ const teacherFn = () => {
   teachersForm.addEventListener("submit", (e) => {
     e.preventDefault();
     extractFormValuesAndAddToLocalState(teachersState, teachersForm);
-    stateReducer("teachersState", teachersState, {
+    stateReducer("teachersState", {
       ...teachersState,
       teachersState,
     });

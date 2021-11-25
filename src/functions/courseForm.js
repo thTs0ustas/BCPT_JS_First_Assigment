@@ -4,6 +4,7 @@ import {
   closeNavBar,
   extractFormValuesAndAddToLocalState,
   pullDataFromCourse,
+  // refreshMainDir,
   stateReducer,
 } from "../helperFn/helperFn.js";
 import { rootState } from "../state/rootState.js";
@@ -14,53 +15,57 @@ let courseState = {};
 const courseFn = () => {
   let mainDir = document.getElementById("main");
 
+  let changeCondAndRefOptions = {
+    setItem: "conditional",
+    mainDir: mainDir,
+    callback: courseHTML,
+  };
+
   closeNavBar(
     courseHTML({
       state: JSON.parse(rootState.courseState),
       cond: JSON.parse(rootState.conditional),
     })
   );
-  let changeCondAndRefOptions = {
-    setItem: "conditional",
-    mainDir: mainDir,
-    callback: courseFn,
-  };
-  console.log(changeCondAndRefOptions);
-  // mainDir.innerHTML = courseHTML({
-  //   state: JSON.parse(rootState.courseState),
-  //   cond: JSON.parse(rootState.conditional),
-  // });
-  //
-  // document.getElementById("navbar-toggler").ariaExpanded = false;
-  // document.getElementById("navbar-toggler").classList.add("collapsed");
-  // document.getElementById("navbarNavDropdown").classList.remove("show");
 
-  document.getElementById("addNew").addEventListener("click", () => {
+  let addNewButton = document.getElementById("addNew");
+  addNewButton?.addEventListener("click", () => {
     changeCondAndRef(changeCondAndRefOptions);
   });
-  document?.getElementById("editForm")?.addEventListener("click", () => {
-    pullDataFromCourse(JSON.parse(rootState.courseState), "courses");
-    changeCondAndRef(changeCondAndRefOptions);
+
+  let editButton = document?.getElementById("editForm");
+  editButton.disabled = !JSON.parse(rootState.conditional) ? "disabled" : false;
+  editButton?.addEventListener("click", () => {
+    extractFormValuesAndAddToLocalState(courseState, courseForm);
+
+    changeCondAndRef({ ...changeCondAndRefOptions });
+    pullDataFromCourse(courseState, "courses");
   });
 
   document?.getElementById("courses")?.addEventListener("change", () => {
     pullDataFromCourse(JSON.parse(rootState.courseState), "courses");
+    extractFormValuesAndAddToLocalState(courseState, courseForm);
+
+    console.log(courseState);
+    changeCondAndRef({ ...changeCondAndRefOptions, state: courseState });
   });
 
   let costInput = document.getElementById("cost");
-
   costInput.addEventListener("focus", onfocus);
   costInput.addEventListener("blur", currencyFormat);
 
   let courseForm = document.getElementById("courseForm");
-  document.getElementById("courseForm").addEventListener("submit", (e) => {
+
+  courseForm.addEventListener("submit", (e) => {
     e.preventDefault();
     extractFormValuesAndAddToLocalState(courseState, courseForm);
-    console.log(courseState);
+    console.log(1);
     stateReducer("courseState", rootState, { ...courseState, courseState });
+    console.log(2);
+    changeCondAndRef({ ...changeCondAndRefOptions });
+    console.log(3);
 
     courseForm.reset();
-    changeCondAndRef(changeCondAndRefOptions);
   });
 };
 export { courseFn };

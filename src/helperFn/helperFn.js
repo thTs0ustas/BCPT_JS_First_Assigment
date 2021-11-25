@@ -1,6 +1,6 @@
 import { rootState } from "../state/rootState.js";
 
-export const stateReducer = (stateKey, state, currentState = {}) => {
+export const stateReducer = (stateKey, currentState = {}) => {
   rootState.setItem(stateKey, JSON.stringify({ ...currentState[stateKey] }));
 };
 
@@ -12,29 +12,6 @@ export const extractFormValuesAndAddToLocalState = (state, formElements) =>
         : { ...preVal, [currentVal.id]: currentVal.value },
     {}
   ));
-
-export const deleteRow = (id, state) => {
-  try {
-    const table = document.getElementById("table");
-
-    let rowCount = table.rows.length;
-    for (let i = 0; i < rowCount; i++) {
-      const row = table.rows[i];
-      const rowObj = row.cells[4].childNodes[3];
-      const rowObjName = row.cells[0].id;
-
-      if (rowObj.id === id) {
-        table.deleteRow(i);
-        // eslint-disable-next-line no-unused-vars
-        const { [rowObjName]: remove, ...rest } = state;
-        rowCount--;
-        return rest;
-      }
-    }
-  } catch (e) {
-    console.error(e);
-  }
-};
 
 export const pullDataFromCourse = (state, id) => {
   let selectedCourse = document?.getElementById(id);
@@ -48,7 +25,6 @@ export const pullDataFromCourse = (state, id) => {
     else {
       [...elementProp].forEach((node, i) => {
         if (node && node.value === state[value][prop] && elementProp[i]) {
-          console.log(elementProp[i].value);
           elementProp[i].selected = "selected";
         }
       });
@@ -62,7 +38,7 @@ export const editSubjectTab = (index, options = {}) => {
     document
       .getElementById(`${options.buttonId}${i}`)
       ?.addEventListener(options.eventType, () => {
-        let selectCell = tableNode.rows[i].cells[cell].childNodes[1].disabled;
+        let selectCell = tableNode.rows[i].cells[cell]?.childNodes[1]?.disabled;
         if (selectCell) {
           tableNode.rows[i].cells[cell].childNodes[1].disabled = false;
         } else {
@@ -72,8 +48,8 @@ export const editSubjectTab = (index, options = {}) => {
           let subjName = tableNode.rows[i].cells[cell].childNodes[1].name;
           let subjVal = tableNode.rows[i].cells[cell].childNodes[1].value;
           let localState = options.state;
-
-          stateReducer(options.stateKey, localState, {
+          console.log(rowObjName);
+          stateReducer(options.stateKey, {
             teachersState: {
               ...localState,
               [rowObjName]: {
@@ -93,17 +69,38 @@ export const closeNavBar = (html) => {
   document.getElementById("navbar-toggler").classList.add("collapsed");
   document.getElementById("navbarNavDropdown").classList.remove("show");
 };
+export const deleteRow = (id, state, cell) => {
+  try {
+    const table = document.getElementById("table");
 
-export const deleteRowFn = (index, options = {}) => {
+    let rowCount = table.rows.length;
+    for (let i = 0; i <= rowCount; i++) {
+      const row = table.rows[i];
+      const rowObj = row.cells[cell].childNodes[3];
+      const rowObjName = row.cells[0].id;
+
+      if (rowObj.id === id) {
+        table.deleteRow(i);
+        // eslint-disable-next-line no-unused-vars
+        const { [rowObjName]: remove, ...rest } = state;
+        rowCount--;
+        return rest;
+      }
+    }
+  } catch (e) {
+    console.error(e);
+  }
+};
+
+export const deleteRowFn = (index, options = {}, cell) => {
   const { callback, buttonId, eventType, state, stateKey } = options;
   for (let i = 0; i <= index; i++) {
     document
       .getElementById(`${buttonId}${i}`)
       ?.addEventListener(eventType, () => {
-        ``;
-        let remainingRows = callback(`${buttonId}${i}`, state);
+        let remainingRows = callback(`${buttonId}${i}`, state, cell);
 
-        stateReducer(stateKey, rootState, {
+        stateReducer(stateKey, {
           ...state,
           teachersState: remainingRows,
         });
@@ -111,17 +108,23 @@ export const deleteRowFn = (index, options = {}) => {
   }
 };
 
+export const refreshMainDir = (
+  dir,
+  callback,
+  state = JSON.parse(rootState.courseState)
+) =>
+  (document.getElementById("main").innerHTML = callback({
+    state,
+    cond: JSON.parse(rootState.conditional),
+  }));
+
 export let changeCondAndRef = (options) => {
-  let { setItem, mainDir, callback } = options;
+  let { setItem, mainDir, callback, conditional, state } = options;
 
   rootState.setItem(
     `${setItem}`,
     JSON.stringify(JSON.parse(rootState.conditional) !== true)
   );
 
-  mainDir.innerHTML = callback({
-    state: JSON.parse(rootState.courseState),
-    cond: JSON.parse(rootState.conditional),
-  });
-  callback();
+  !conditional ? refreshMainDir(mainDir, callback, state) : null;
 };

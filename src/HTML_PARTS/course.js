@@ -32,6 +32,7 @@ const courseHTML = ({ state, cond }) => /* HTML */ ` <div
                   type="text"
                   id="courseName"
                   placeholder="Enter Course Name...."
+                  
                 />`}
           </td>
         </tr>

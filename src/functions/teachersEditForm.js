@@ -35,7 +35,7 @@ const teacherEditFormFn = () => {
   //
   //Delete Row
   //
-  deleteRowFn(index, deleteRowOptions);
+  deleteRowFn(index, deleteRowOptions, 4);
 
   //
   //  edit subject tab
