@@ -33,7 +33,7 @@ const mockUpCourse = {
 rootState.setItem("studentState", JSON.stringify(mockUpStudent));
 rootState.setItem("teachersState", JSON.stringify(mockUpTeacher));
 rootState.setItem("courseState", JSON.stringify(mockUpCourse));
-rootState.setItem("assignments", "{}");
+rootState.setItem("assignmentState", "{}");
 rootState.setItem("conditional", JSON.stringify(false));
 
 export let printState = () => console.log(rootState.currentState);
