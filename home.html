@@ -7,13 +7,17 @@
       content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
     />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <!--    <script src="src/state/rootState.js" type="module"></script>-->
     <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" href="css/styles.css" type="text/css" />
 
     <title>Document</title>
   </head>
+
   <body class="home-page">
+    <!--  the header part and the footer part stays the same.
+The main part of the body "<main></main>" gets dynamically
+all the HTML parts. -->
+
     <header class="align-content-center w-100">
       <nav class="navbar navbar-expand-lg navbar-light p-lg-2">
         <a class="navbar-brand" href="#"
@@ -137,6 +141,7 @@
     <footer>
       <p>Copyright &copy; Private School 2021</p>
     </footer>
+    <!--    the project uses webpack, so it uses a bundled js file-->
     <script
       defer
       src="src/bootstrap.bundle.min.js"

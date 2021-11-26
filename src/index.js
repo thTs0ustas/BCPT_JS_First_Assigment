@@ -6,8 +6,17 @@ import { teacherFn, teacherEditFormFn } from "./components/trainers";
 import { studentFn, studentEditFormFn } from "./components/students";
 import { rootState } from "./state/rootState.js";
 
+//
+// Event on loading html file
+//
+
 document.addEventListener("DOMContentLoaded", () => homePageFn());
 
+//
+//
+// Events assign to the nav links for moving around html parts
+//
+//
 document
   .getElementsByClassName("navbar-brand")[0]
   .addEventListener("click", () => homePageFn());
@@ -15,6 +24,7 @@ document
 document
   .getElementsByClassName("assigment")[0]
   .addEventListener("click", () => assignmentFn());
+
 document
   .getElementsByClassName("course")[0]
   .addEventListener("click", () => courseFn());

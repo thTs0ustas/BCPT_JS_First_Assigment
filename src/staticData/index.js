@@ -1,3 +1,7 @@
+//
+// static data
+//
+
 let subjects = {
   javascript: "Javascript",
   java: "Java",

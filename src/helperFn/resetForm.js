@@ -1,3 +1,7 @@
+//
+// custom reset form function
+//
+
 export const resetForm = (formId) => {
   let frm_elements = document
     .getElementById(formId)

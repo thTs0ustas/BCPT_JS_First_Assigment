@@ -1,4 +1,6 @@
-const assignmentHTML = ({ state }) => /* HTML */ ` <div class="form-container">
+const assignmentHTML = (/*{ state }*/) => /* HTML */ ` <div
+  class="form-container"
+>
   <form id="assignmentForm">
     <div class="outer_parts">
       <h1>Assigment</h1>

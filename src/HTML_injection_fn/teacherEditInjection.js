@@ -1,5 +1,9 @@
 import subjects from "../staticData";
 
+//
+// Create table rows based on teachers state
+//
+
 export const mapTableRows = (state) => {
   let index = 0;
   return [

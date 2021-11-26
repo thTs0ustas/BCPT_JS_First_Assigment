@@ -7,10 +7,6 @@ export const aboutUsHTML = /* HTML */ ` <div class="about-section">
       eius dicta a voluptates sit deleniti autem error eos totam nisi neque
       voluptates sit deleniti autem error eos totam nisi neque.
     </p>
-    <div class="skills">
-      <!--      <span class="active">Web Design</span>-->
-      <!--      <span>Pro Develpor</span>-->
-      <!--      <span>Android Develpor</span>-->
-    </div>
+    <div class="skills"></div>
   </div>
 </div>`;

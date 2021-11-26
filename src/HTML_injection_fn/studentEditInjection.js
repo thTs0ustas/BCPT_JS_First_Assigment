@@ -1,3 +1,7 @@
+//
+// Create table rows based on students state
+//
+
 export const mapTableStudentRows = (state, stateParts) => {
   let index = 0;
   return [

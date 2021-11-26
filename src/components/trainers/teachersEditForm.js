@@ -33,7 +33,7 @@ const teacherEditFormFn = () => {
   };
 
   //
-  //Delete Row
+  //  Delete Row
   //
   deleteRowFn(index, deleteRowOptions, 4);
 

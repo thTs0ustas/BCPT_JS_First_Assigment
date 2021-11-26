@@ -1,8 +1,15 @@
 import { rootState } from "../state/rootState.js";
 
+//
+// passing state from individual local states to localstorage
+//
 export const stateReducer = (stateKey, currentState = {}) => {
   rootState.setItem(stateKey, JSON.stringify({ ...currentState[stateKey] }));
 };
+
+//
+// Extracting values from forms and adding them to local states
+//
 
 export const extractFormValuesAndAddToLocalState = (state, formElements) =>
   (state[formElements.elements[0].value] = [...formElements.elements].reduce(
@@ -13,6 +20,12 @@ export const extractFormValuesAndAddToLocalState = (state, formElements) =>
     {}
   ));
 
+//
+// function for Taking data from courses state
+// based of a given course name.
+// It's use for injecting the data back to form
+//
+//
 export const pullDataFromCourse = (state, id) => {
   let selectedCourse = document?.getElementById(id);
   let value = selectedCourse?.options[selectedCourse.selectedIndex].value;
@@ -33,6 +46,10 @@ export const pullDataFromCourse = (state, id) => {
     }
   }
 };
+
+//
+//
+//
 
 export const editSubjectTab = (index, options = {}) => {
   let { tableNode, cell } = options;
@@ -65,12 +82,25 @@ export const editSubjectTab = (index, options = {}) => {
   }
 };
 
+//
+// Auto closing expanded navbar
+//
+
 export const closeNavBar = (html) => {
   document.getElementById("main").innerHTML = html;
   document.getElementById("navbar-toggler").ariaExpanded = false;
   document.getElementById("navbar-toggler").classList.add("collapsed");
   document.getElementById("navbarNavDropdown").classList.remove("show");
 };
+
+//
+// Two functions for deleted table rows and deleted
+// the adjusted state part
+//
+
+//
+// finding the part to delete and return local state without it
+//
 export const deleteRow = (id, state, cell) => {
   try {
     const table = document.getElementById("table");
@@ -93,6 +123,11 @@ export const deleteRow = (id, state, cell) => {
     console.log(e);
   }
 };
+
+//
+// function for click event
+// localstorage takes the changes
+//
 
 export const deleteRowFn = (index, options = {}, cell) => {
   const { callback, buttonId, eventType, state, stateKey } = options;
