@@ -1,8 +1,10 @@
 import { rootState } from "../../state/rootState";
 
-export let individualStudentHTML = ({ key, state }) => /* HTML */ `<section
-  class="w-100"
->
+export let individualStudentHTML = ({
+  key,
+  state,
+  localState,
+}) => /* HTML */ `<section class="w-100">
   <div class="container-fluid w-100">
     <div class="row w-100 justify-content-center">
       <div class="col-lg-12 pt-5 w-100""> <div class="card mb-4 w-100""> <div
@@ -49,16 +51,20 @@ export let individualStudentHTML = ({ key, state }) => /* HTML */ `<section
       <hr />
       <hr />
       <div class="row">
-        <select class="w-100" id="courses" required>
+        <select class="w-100" id="assignments" required>
           <option value="" selected name="courses">-</option>
           ${Object.keys(JSON.parse(rootState.assignmentState)).map(
             (assignment) =>
-              `<option value="${assignment}" name="courses">
+              `<option value="${assignment}" name="assignments">
                         ${assignment}
                       </option>`
           )}
         </select>
+        <button class="w-25 m-3 addNewAssignment">Add Assignment</button>
       </div>
+      <hr />
+      <hr />
+      <hr />
       <div class="row">
         <table class="table">
           <thead>
@@ -69,27 +75,13 @@ export let individualStudentHTML = ({ key, state }) => /* HTML */ `<section
               <th scope="col">Deadline</th>
             </tr>
           </thead>
-          <tbody>
-            ${state[key].assignments
-              ? state[key].assignments.map(
-                  (assignment) => `
-          
-                  <tr>
-                <th scope="row">${assignment.assignmentName}</th>
-                <td>45%</td>
-                <td>50%</td>
-                <td>${assignment.submDate}</td>
-              </tr>
-                  `
-                )
-              : `
-          
-                  <tr>
-                <th scope="row">No assignments</th>
-                <td>-</td>
-                <td>-</td>
-              </tr>
-                  `}
+          <tbody id="tbody">
+            <tr>
+              <th scope="row">No assignments</th>
+              <td>-</td>
+              <td>-</td>
+              <td id="submDate">00-00-00</td>
+            </tr>
           </tbody>
         </table>
       </div>

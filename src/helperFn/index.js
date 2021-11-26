@@ -12,4 +12,5 @@ export {
   extractFormValuesAndAddToLocalState,
   pullDataFromCourse,
   stateReducer,
+  pullDataFromAssignment,
 } from "./helperFn";

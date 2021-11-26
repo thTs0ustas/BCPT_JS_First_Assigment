@@ -51,6 +51,32 @@ export const pullDataFromCourse = (state, id) => {
 //
 //
 
+export const pullDataFromAssignment = (state, id, storage) => {
+  let selectedAssignment = document?.getElementById(id);
+  let value =
+    selectedAssignment?.options[selectedAssignment.selectedIndex].value;
+
+  for (let prop in state[value]) {
+    storage[value] = state[value];
+    if (prop === "assignmentName") {
+      storage[value].prop = {
+        ...storage[value].prop,
+        prop: state[value].prop,
+      };
+    }
+    if (prop === "submDate") {
+      storage[value].prop = {
+        ...storage[value].prop,
+        prop: state[value].prop,
+      };
+    }
+  }
+  storage[value].oralMark = 0;
+  storage[value].totalMark = 0;
+  console.log(storage);
+  return storage;
+};
+
 export const editSubjectTab = (index, options = {}) => {
   let { tableNode, cell } = options;
   for (let i = 0; i <= index; i++) {
