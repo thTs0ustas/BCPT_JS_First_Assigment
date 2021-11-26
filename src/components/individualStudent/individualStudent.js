@@ -1,13 +1,14 @@
 import { individualStudentHTML } from "./individualStudentHTML";
 import { pullDataFromAssignment } from "../../helperFn";
 import { rootState } from "../../state/rootState";
+import { studentAssignments } from "../../HTML_injection_fn/studentAssignments";
 // import {
 //   extractFormValuesAndAddToLocalState,
 //   pullDataFromCourse,
 // } from "../../helperFn/helperFn";
 // import { rootState } from "../../state/rootState";
 
-let localState = {};
+let localState = [];
 export const individualStudentFn = ({ key, state }) => {
   let main = document.getElementById("main");
   main.innerHTML = individualStudentHTML({
@@ -27,10 +28,13 @@ export const individualStudentFn = ({ key, state }) => {
       )
     );
 
-    localState[key] = {
-      ...student[key],
-      assignments: student[key].assignments,
-    };
+    localState.push(
+      Object.assign(student[key], { assignments: student[key].assignments })
+    );
+    // localState[key] = {
+    //   ...student[key],
+    //   assignments: student[key].assignments,
+    // };
 
     console.log(localState);
   });
@@ -39,10 +43,7 @@ export const individualStudentFn = ({ key, state }) => {
     ?.getElementsByClassName("addNewAssignment")[0]
     .addEventListener("click", (e) => {
       e.preventDefault();
-      individualStudentHTML({
-        key,
-        state,
-        localState,
-      });
+      console.log(localState[0].assignments);
+      studentAssignments(localState[0].assignments);
     });
 };
