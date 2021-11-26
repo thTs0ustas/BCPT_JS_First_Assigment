@@ -65,6 +65,33 @@ const studentHTML = (courses) => /* HTML */ `
           </tr>
           <tr>
             <td>
+              <label for="fee">Phone</label>
+            </td>
+            <td colspan="2">
+              <input
+                required
+                type="tel"
+                pattern="[+dd]?[0-9]{10}"
+                placeholder="Enter Phone...."
+                id="phone"
+              />
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <label for="fee">Address</label>
+            </td>
+            <td colspan="2">
+              <input
+                type="text"
+                id="address"
+                required
+                placeholder="Enter Address...."
+              />
+            </td>
+          </tr>
+          <tr>
+            <td>
               <label for="email">E-mail</label>
             </td>
             <td colspan="2">

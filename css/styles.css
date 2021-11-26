@@ -222,6 +222,11 @@ table {
 tr {
   margin-top: 5px;
 }
+#table tr td:first-child:hover {
+  background-color: rgba(226, 227, 229, 0.47);
+  border-radius: 10px;
+  cursor: pointer;
+}
 td:first-child {
   width: 30%;
 }

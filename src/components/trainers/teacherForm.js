@@ -1,9 +1,9 @@
-import teachersHTML from "../HTML_PARTS/teachers.js";
+import teachersHTML from "./teachersHTML.js";
 import {
   closeNavBar,
   extractFormValuesAndAddToLocalState,
   stateReducer,
-} from "../helperFn/helperFn.js";
+} from "../../helperFn";
 
 const teachersState = [];
 

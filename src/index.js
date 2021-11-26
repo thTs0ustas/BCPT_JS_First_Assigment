@@ -1,12 +1,10 @@
-import { homePageFn } from "./functions/homePage.js";
-import { studentFn } from "./functions/studentForm.js";
-import { teacherFn } from "./functions/teacherForm.js";
-import { courseFn } from "./functions/courseForm.js";
-import { teacherEditFormFn } from "./functions/teachersEditForm.js";
-import { studentEditFormFn } from "./functions/studentEditForm.js";
+import { homePageFn } from "./components/homePage";
+import { courseFn } from "./components/courses/courseForm.js";
+import { aboutUsFn } from "./components/aboutUs";
+import { assignmentFn } from "./components/assignments";
+import { teacherFn, teacherEditFormFn } from "./components/trainers";
+import { studentFn, studentEditFormFn } from "./components/students";
 import { rootState } from "./state/rootState.js";
-import { aboutUsFn } from "./functions/aboutUs.js";
-import { assignmentFn } from "./functions/assigment.js";
 
 document.addEventListener("DOMContentLoaded", () => homePageFn());
 

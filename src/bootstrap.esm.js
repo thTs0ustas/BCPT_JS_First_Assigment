@@ -837,7 +837,7 @@ class BaseComponent {
 
 /**
  * --------------------------------------------------------------------------
- * Bootstrap (v5.1.3): util/component-functions.src
+ * Bootstrap (v5.1.3): util/component-staticData.src
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
  * --------------------------------------------------------------------------
  */

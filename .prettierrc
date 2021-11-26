@@ -2,6 +2,6 @@
   "printWidth": 80,
   "semi": true,
   "arrowParens": "always",
-  "trailingComma": "es5"
-
+  "trailingComma": "es5",
+  "embeddedLanguageFormatting": "auto"
 }

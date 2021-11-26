@@ -1,0 +1,1 @@
+export { homePageFn } from "./homePage";

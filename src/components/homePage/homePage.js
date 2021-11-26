@@ -1,4 +1,4 @@
-import homeHTML from "../HTML_PARTS/home.js";
+import homeHTML from "./home.js";
 
 export const homePageFn = () => {
   document.getElementById("main").innerHTML = homeHTML;

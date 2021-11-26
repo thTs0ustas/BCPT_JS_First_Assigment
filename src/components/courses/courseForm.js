@@ -1,13 +1,14 @@
-import courseHTML from "../HTML_PARTS/course.js";
+import courseHTML from "./courseHTML.js";
 import {
   closeNavBar,
   extractFormValuesAndAddToLocalState,
   pullDataFromCourse,
   stateReducer,
-} from "../helperFn/helperFn.js";
-import { rootState } from "../state/rootState.js";
-import { currencyFormat, onfocus } from "../helperFn/currencyFormat.js";
-import { resetForm } from "../helperFn/resetForm.js";
+  currencyFormat,
+  onfocus,
+  resetForm,
+} from "../../helperFn";
+import { rootState } from "../../state/rootState.js";
 
 let courseState = {};
 

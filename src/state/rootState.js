@@ -8,6 +8,9 @@ const mockUpStudent = {
     fee: "256,00 €",
     firstName: "Thanos",
     lastName: "tsou",
+    address: "Νέστορος 9",
+    phone: "6976726730",
+    assignments: [],
   },
 };
 const mockUpTeacher = {

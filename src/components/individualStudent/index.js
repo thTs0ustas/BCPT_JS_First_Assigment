@@ -1,0 +1,1 @@
+export { individualStudentFn } from "./individualStudent";

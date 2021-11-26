@@ -1,12 +1,12 @@
-import teachersEditFormHTML from "../HTML_PARTS/teachersEditForm.js";
+import teachersEditFormHTML from "./teachersEditFormHTML.js";
 import {
   closeNavBar,
   deleteRow,
   deleteRowFn,
   editSubjectTab,
-} from "../helperFn/helperFn.js";
-import { rootState } from "../state/rootState.js";
-import { mapTableRows } from "../HTML_injection_fn/teacherEditInjection.js";
+} from "../../helperFn";
+import { rootState } from "../../state/rootState.js";
+import { mapTableRows } from "../../HTML_injection_fn";
 
 const teacherEditFormFn = () => {
   //Close nav dropdown when loading HTML

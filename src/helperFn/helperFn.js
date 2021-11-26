@@ -20,6 +20,7 @@ export const pullDataFromCourse = (state, id) => {
   for (let prop in state[value]) {
     let elementProp = document?.getElementById(prop);
     console.log(elementProp);
+
     if (prop !== "stream" && prop !== "type") {
       elementProp?.setAttribute("value", state[value][prop]);
     } else {

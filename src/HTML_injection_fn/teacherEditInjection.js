@@ -1,4 +1,4 @@
-import subjects from "../functions";
+import subjects from "../staticData";
 
 export const mapTableRows = (state) => {
   let index = 0;

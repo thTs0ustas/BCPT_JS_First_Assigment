@@ -8,9 +8,9 @@ export const aboutUsHTML = /* HTML */ ` <div class="about-section">
       voluptates sit deleniti autem error eos totam nisi neque.
     </p>
     <div class="skills">
-      <span class="active">Web Design</span>
-      <span>Pro Develpor</span>
-      <span>Android Develpor</span>
+      <!--      <span class="active">Web Design</span>-->
+      <!--      <span>Pro Develpor</span>-->
+      <!--      <span>Android Develpor</span>-->
     </div>
   </div>
 </div>`;
