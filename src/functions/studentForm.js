@@ -4,6 +4,7 @@ import {
   stateReducer,
 } from "../helperFn/helperFn.js";
 import { rootState } from "../state/rootState.js";
+import { resetForm } from "../helperFn/resetForm";
 
 let studentState = {};
 const studentFn = () => {
@@ -28,8 +29,11 @@ const studentFn = () => {
     .addEventListener("change", () =>
       pullCostFromCourse(JSON.parse(rootState.courseState), "courses")
     );
-
   let studentsForm = document.getElementById("studentsForm");
+
+  document
+    .getElementsByClassName("reset")[0]
+    .addEventListener("click", () => resetForm(studentsForm));
 
   studentsForm.addEventListener("submit", (e) => {
     e.preventDefault();

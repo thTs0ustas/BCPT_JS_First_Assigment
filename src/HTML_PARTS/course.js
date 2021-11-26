@@ -1,6 +1,7 @@
 import subjects from "../functions";
 
-const courseHTML = ({ state, cond }) => /* HTML */ ` <div
+const courseHTML = ({ state, cond } /* HTML */) =>
+  ` <div
   class="form-container"
 >
   <form id="courseForm">
@@ -15,8 +16,9 @@ const courseHTML = ({ state, cond }) => /* HTML */ ` <div
           </td>
 
           <td colspan="2">
-            ${!cond
-              ? `<select id="courses" required>
+            ${
+              !cond
+                ? `<select id="courses" required>
                   <option value="" selected name="courses">
                     -
                   </option>
@@ -27,13 +29,14 @@ const courseHTML = ({ state, cond }) => /* HTML */ ` <div
                 </option>`
                   )}
                 </select>`
-              : `<input
+                : `<input
                   required
                   type="text"
                   id="courseName"
                   placeholder="Enter Course Name...."
                   
-                />`}
+                />`
+            }
           </td>
         </tr>
 
@@ -84,7 +87,7 @@ const courseHTML = ({ state, cond }) => /* HTML */ ` <div
           </td>
           <td colspan="2">
             <input
-              type="currency"
+              type="text"
               ${!cond ? "disabled" : ""}
               step="any"
               min="1"
@@ -127,8 +130,10 @@ const courseHTML = ({ state, cond }) => /* HTML */ ` <div
           Add New
         </button>
         <div class="buttons">
-          <button class="submit" type="submit">Submit</button>
-          <button type="reset">Cancel</button>
+          <button ${
+            !cond ? "disabled" : ""
+          } class="submit" type="submit">Submit</button>
+          <button class="reset" >Cancel</button>
         </div>
       </div>
     </div>

@@ -19,12 +19,13 @@ export const pullDataFromCourse = (state, id) => {
 
   for (let prop in state[value]) {
     let elementProp = document?.getElementById(prop);
-
-    if (prop !== "stream" && prop !== "type")
+    console.log(elementProp);
+    if (prop !== "stream" && prop !== "type") {
       elementProp?.setAttribute("value", state[value][prop]);
-    else {
+    } else {
       [...elementProp].forEach((node, i) => {
         if (node && node.value === state[value][prop] && elementProp[i]) {
+          // elementProp.innerText = state[value][prop];
           elementProp[i].selected = "selected";
         }
       });
@@ -106,25 +107,4 @@ export const deleteRowFn = (index, options = {}, cell) => {
         });
       });
   }
-};
-
-export const refreshMainDir = (
-  dir,
-  callback,
-  state = JSON.parse(rootState.courseState)
-) =>
-  (document.getElementById("main").innerHTML = callback({
-    state,
-    cond: JSON.parse(rootState.conditional),
-  }));
-
-export let changeCondAndRef = (options) => {
-  let { setItem, mainDir, callback, conditional, state } = options;
-
-  rootState.setItem(
-    `${setItem}`,
-    JSON.stringify(JSON.parse(rootState.conditional) !== true)
-  );
-
-  !conditional ? refreshMainDir(mainDir, callback, state) : null;
 };

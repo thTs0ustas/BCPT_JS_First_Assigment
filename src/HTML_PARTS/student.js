@@ -80,7 +80,7 @@ const studentHTML = (courses) => /* HTML */ `
         <div class="outer_parts">
           <div class="buttons">
             <button type="submit">Submit</button>
-            <button type="reset">Cancel</button>
+            <button class="reset" type="reset">Cancel</button>
           </div>
         </div>
       </div>

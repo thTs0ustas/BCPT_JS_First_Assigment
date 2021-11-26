@@ -7,6 +7,7 @@ import {
 } from "../helperFn/helperFn.js";
 import { rootState } from "../state/rootState.js";
 import { currencyFormat, onfocus } from "../helperFn/currencyFormat.js";
+import { resetForm } from "../helperFn/resetForm.js";
 
 let courseState = {};
 
@@ -24,9 +25,8 @@ const courseFn = ({ state, cond } = {}) => {
   document?.getElementById("courses")?.addEventListener("change", () => {
     pullDataFromCourse(JSON.parse(rootState.courseState), "courses");
     extractFormValuesAndAddToLocalState(courseState, courseForm);
-
-    // changeCondAndRef({ ...changeCondAndRefOptions, state: courseState });
   });
+
   document.getElementById("courseForm").addEventListener("submit", (e) => {
     e.preventDefault();
     extractFormValuesAndAddToLocalState(courseState, courseForm);
@@ -34,14 +34,20 @@ const courseFn = ({ state, cond } = {}) => {
       ...courseState,
       courseState,
     });
+
     rootState.setItem(
       `conditional`,
       JSON.stringify(JSON.parse(rootState.conditional) !== true)
     );
+
     courseFn({
       state: JSON.parse(rootState.courseState),
       cond: JSON.parse(rootState.conditional),
     });
+  });
+  document.getElementsByClassName("reset")[0].addEventListener("click", (e) => {
+    e.preventDefault();
+    resetForm("courseForm");
   });
 
   let editButton = document?.getElementsByClassName("addNew")[0];
