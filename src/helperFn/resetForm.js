@@ -1,12 +1,11 @@
 export const resetForm = (formId) => {
   let frm_elements = document
     .getElementById(formId)
-    .querySelectorAll("input, select, textarea");
+    ?.querySelectorAll("input, select, textarea");
 
-  console.log(frm_elements);
   for (let i = 0; i < frm_elements.length; i++) {
     let field_type = frm_elements[i].type.toLowerCase();
-    console.log(field_type);
+
     switch (field_type) {
       case "text":
       case "number":

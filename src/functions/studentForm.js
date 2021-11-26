@@ -31,9 +31,10 @@ const studentFn = () => {
     );
   let studentsForm = document.getElementById("studentsForm");
 
-  document
-    .getElementsByClassName("reset")[0]
-    .addEventListener("click", () => resetForm(studentsForm));
+  document.getElementsByClassName("reset")[0].addEventListener("click", (e) => {
+    e.preventDefault();
+    resetForm("studentsForm");
+  });
 
   studentsForm.addEventListener("submit", (e) => {
     e.preventDefault();
