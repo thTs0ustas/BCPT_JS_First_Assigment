@@ -221,6 +221,7 @@ table {
 }
 tr {
   margin-top: 5px;
+  text-align: center;
 }
 #table tr td:first-child:hover {
   background-color: rgba(226, 227, 229, 0.47);

@@ -1,12 +1,7 @@
 import { individualStudentHTML } from "./individualStudentHTML";
-import { pullDataFromAssignment } from "../../helperFn";
+import { pullDataFromAssignment, stateReducer } from "../../helperFn";
 import { rootState } from "../../state/rootState";
 import { studentAssignments } from "../../HTML_injection_fn/studentAssignments";
-// import {
-//   extractFormValuesAndAddToLocalState,
-//   pullDataFromCourse,
-// } from "../../helperFn/helperFn";
-// import { rootState } from "../../state/rootState";
 
 let localState = [];
 export const individualStudentFn = ({ key, state }) => {
@@ -16,11 +11,11 @@ export const individualStudentFn = ({ key, state }) => {
     state,
   });
 
+  let student = JSON.parse(rootState.studentState);
+  let sKey = Object.keys(student)[0];
   document?.getElementById("assignments")?.addEventListener("change", () => {
-    let student = JSON.parse(rootState.studentState);
-    let key = Object.keys(student)[0];
-    console.log(student[key]);
-    student[key].assignments.push(
+    console.log(student[sKey]);
+    student[sKey].assignments.push(
       pullDataFromAssignment(
         JSON.parse(rootState.assignmentState),
         "assignments",
@@ -29,21 +24,21 @@ export const individualStudentFn = ({ key, state }) => {
     );
 
     localState.push(
-      Object.assign(student[key], { assignments: student[key].assignments })
+      Object.assign(student[sKey], { assignments: student[sKey].assignments })
     );
-    // localState[key] = {
-    //   ...student[key],
-    //   assignments: student[key].assignments,
-    // };
-
-    console.log(localState);
   });
-
   document
     ?.getElementsByClassName("addNewAssignment")[0]
     .addEventListener("click", (e) => {
       e.preventDefault();
-      console.log(localState[0].assignments);
-      studentAssignments(localState[0].assignments);
+
+      stateReducer("studentState", {
+        studentState: {
+          ...JSON.parse(rootState.studentState),
+          [sKey]: student[sKey],
+        },
+      });
+      studentAssignments(JSON.parse(rootState.studentState)[sKey].assignments);
     });
+  studentAssignments(JSON.parse(rootState.studentState)[sKey].assignments);
 };

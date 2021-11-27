@@ -1,10 +1,8 @@
 import { rootState } from "../../state/rootState";
 
-export let individualStudentHTML = ({
-  key,
-  state,
-  localState,
-}) => /* HTML */ `<section class="w-100">
+export let individualStudentHTML = ({ key, state }) => /* HTML */ `<section
+  class="w-100"
+>
   <div class="container-fluid w-100">
     <div class="row w-100 justify-content-center">
       <div class="col-lg-12 pt-5 w-100""> <div class="card mb-4 w-100""> <div
