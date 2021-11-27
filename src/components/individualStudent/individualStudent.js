@@ -12,11 +12,10 @@ export const individualStudentFn = ({ key, state }) => {
   });
 
   let student = JSON.parse(rootState.studentState);
-
-  student[key].assignments = [];
+  let sKey = Object.keys(student)[0];
   document?.getElementById("assignments")?.addEventListener("change", () => {
-    console.log(student[key]);
-    student[key].assignments.push(
+    console.log(student[sKey]);
+    student[sKey].assignments.push(
       pullDataFromAssignment(
         JSON.parse(rootState.assignmentState),
         "assignments",
@@ -25,7 +24,7 @@ export const individualStudentFn = ({ key, state }) => {
     );
 
     localState.push(
-      Object.assign(student[key], { assignments: student[key].assignments })
+      Object.assign(student[sKey], { assignments: student[sKey].assignments })
     );
   });
   document
@@ -36,10 +35,10 @@ export const individualStudentFn = ({ key, state }) => {
       stateReducer("studentState", {
         studentState: {
           ...JSON.parse(rootState.studentState),
-          [key]: student[key],
+          [sKey]: student[sKey],
         },
       });
-      studentAssignments(JSON.parse(rootState.studentState)[key].assignments);
+      studentAssignments(JSON.parse(rootState.studentState)[sKey].assignments);
     });
-  studentAssignments(JSON.parse(rootState.studentState)[key].assignments);
+  studentAssignments(JSON.parse(rootState.studentState)[sKey].assignments);
 };
