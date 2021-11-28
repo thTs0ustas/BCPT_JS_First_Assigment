@@ -13,6 +13,7 @@ export const individualStudentFn = ({ key, state }) => {
 
   let student = JSON.parse(rootState.studentState);
   let sKey = Object.keys(student)[0];
+  student[key].assignments = [];
   document?.getElementById("assignments")?.addEventListener("change", () => {
     console.log(student[sKey]);
     student[sKey].assignments.push(

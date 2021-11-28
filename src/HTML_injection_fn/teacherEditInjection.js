@@ -1,4 +1,4 @@
-import subjects from "../staticData";
+import { subjects } from "../staticData";
 
 //
 // Create table rows based on teachers state

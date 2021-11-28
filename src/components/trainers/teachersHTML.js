@@ -1,4 +1,4 @@
-import subjects from "../../staticData";
+import { subjects } from "../../staticData";
 
 const teachersHTML =
   /* HTML */
