@@ -45,4 +45,3 @@ document
 document
   .getElementsByClassName("aboutUs")[0]
   .addEventListener("click", () => aboutUsFn());
-console.log(rootState);

@@ -1,3 +1,8 @@
+//
+// HTML part to be added when student link is pressed.
+// It takes the courses part of the state.
+//
+
 const studentHTML = (courses) => /* HTML */ `
   <div class="form-container">
     <form id="studentsForm">

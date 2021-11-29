@@ -1,3 +1,7 @@
+// HTML part for edit of the student. It is a table
+// and every name cell can be pressed so we can see a more detailed part
+// for tha student.
+
 const studentEditFormHTML =
   /* HTML */
   `<div class="form-container">

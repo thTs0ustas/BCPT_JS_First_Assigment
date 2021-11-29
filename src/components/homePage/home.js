@@ -1,3 +1,5 @@
+// Home page HTML part
+
 const homeHTML =
   /* HTML */
   `<div class="headings-container">

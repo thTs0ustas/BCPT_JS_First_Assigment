@@ -43,7 +43,7 @@ nav {
 }
 nav > div {
   position: relative;
-  top: 20px;
+  top: 25px;
 }
 h1 {
   position: relative;
@@ -83,6 +83,7 @@ main > div {
 }
 
 .nav-link {
+  width: fit-content;
   font-size: 2.2rem !important;
   color: #e8eaee !important;
 }
@@ -164,20 +165,20 @@ main > div {
   }
 }
 
-footer {
-  position: relative;
-  background-color: rgba(0, 0, 0, 0.26);
-  height: 5vh;
-  color: #e2e3e5;
-}
+/*footer {*/
+/*  position: relative;*/
+/*  background-color: rgba(0, 0, 0, 0.26);*/
+/*  height: 5vh;*/
+/*  color: #e2e3e5;*/
+/*}*/
 
-footer p {
-  position: absolute;
-  font-size: 1rem;
-  right: 10px;
-  bottom: 2px;
-  text-align: center;
-}
+/*footer p {*/
+/*  position: absolute;*/
+/*  font-size: 1rem;*/
+/*  right: 10px;*/
+/*  bottom: 2px;*/
+/*  text-align: center;*/
+/*}*/
 
 .btn-act {
   width: 120px;
@@ -384,6 +385,7 @@ td > select {
 .text {
   font-size: 16px;
   color: #ffffff;
+  text-shadow: 0.5px 0.5px 1px #fff;
   line-height: 30px;
   text-align: justify;
   margin-bottom: 40px;
@@ -392,17 +394,9 @@ h1 {
   color: #f85370;
 }
 
-.skills {
-  display: flex;
-  justify-content: space-between;
-  font-weight: 700;
-  font-size: 13px;
-}
-
 @media screen and (max-width: 4000px) {
   .about-section {
     background-size: 100%;
-    padding: 100px 40px;
   }
   .inner-container {
     width: 100%;
@@ -415,4 +409,42 @@ span {
   text-align: center;
   padding: 10px;
   width: 500px;
+}
+
+.footer-basic {
+  width: 100%;
+
+  background-color: #000000;
+  color: #4b4c4d;
+}
+
+.footer-basic .social {
+  text-align: center;
+  padding-top: 25px;
+}
+
+.footer-basic .social > a {
+  font-size: 24px;
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+  display: inline-block;
+  text-align: center;
+  border-radius: 50%;
+  border: 1px solid #ccc;
+  margin: 0 8px;
+  color: inherit;
+  opacity: 0.75;
+}
+
+.footer-basic .social > a:hover {
+  opacity: 0.9;
+}
+
+.footer-basic .copyright {
+  margin-top: 15px;
+  text-align: center;
+  font-size: 13px;
+  color: #e8eaee;
+  margin-bottom: 0;
 }

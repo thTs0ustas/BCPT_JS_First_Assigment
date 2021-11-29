@@ -7,7 +7,7 @@ import { individualStudentFn } from "../individualStudent";
 const studentEditFormFn = () => {
   //Close nav dropdown when loading HTML
   document.getElementById("main").innerHTML = studentEditFormHTML;
-  document.getElementById("navbar-toggler").ariaExpanded = false;
+  document.getElementById("navbar-toggler").ariaExpanded = "false";
   document.getElementById("navbar-toggler").classList.add("collapsed");
   document.getElementById("navbarNavDropdown").classList.remove("show");
   let table = document.getElementById("table");
@@ -39,9 +39,8 @@ const studentEditFormFn = () => {
 
         let rowObjName = table.rows[i].cells[0].id;
         let subjName = table.rows[i].cells[2].childNodes[1].name.split(" ")[0];
-        let subjVal = table.rows[i].cells[2].childNodes[1].value;
+        let subjVal = table.rows[i].cells[2].childNodes[1]?.value;
         let localState = JSON.parse(rootState.studentState);
-        console.log(rowObjName);
         stateReducer("studentState", {
           studentState: {
             ...localState,

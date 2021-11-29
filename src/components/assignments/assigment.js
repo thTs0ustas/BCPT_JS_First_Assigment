@@ -15,6 +15,7 @@ const assignmentFn = ({ state } = {}) => {
     })
   );
 
+  // Add new assignment to root state
   let assignmentForm = document.getElementById("assignmentForm");
   assignmentForm.addEventListener("submit", (e) => {
     e.preventDefault();

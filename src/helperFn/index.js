@@ -4,6 +4,8 @@ export { pullCostFromCourse, resetOnClick } from "./pullDataFromState";
 
 export { currencyFormat, onfocus } from "./currencyFormat";
 
+export { dateOfBirthValidation } from "./validations";
+
 export {
   closeNavBar,
   deleteRow,

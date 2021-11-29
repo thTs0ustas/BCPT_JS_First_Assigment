@@ -1,3 +1,7 @@
+//
+// Table row for the assignments for every individual student
+//
+
 export const studentAssignments = (state) => {
   console.log(state);
   document.getElementById("tbody").innerHTML = state

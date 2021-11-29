@@ -114,7 +114,7 @@ export const editSubjectTab = (index, options = {}) => {
 
 export const closeNavBar = (html) => {
   document.getElementById("main").innerHTML = html;
-  document.getElementById("navbar-toggler").ariaExpanded = false;
+  document.getElementById("navbar-toggler").ariaExpanded = "false";
   document.getElementById("navbar-toggler").classList.add("collapsed");
   document.getElementById("navbarNavDropdown").classList.remove("show");
 };
