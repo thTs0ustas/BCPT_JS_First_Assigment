@@ -1,8 +1,8 @@
-// TODO: Make the same assignment  
-    in individual student not to 
+// TODO: Make the same assignment
+    in individual student not to
     be added a second time
-
+// TODO: Change localstorage from object of objects to array of objects
 // TODO: Make assignment total & oral mark editable
-// TODO: Fix colors in nav in individual student html 
-// TODO: Refactor to break main funtions to smaller parts
+// TODO: Fix colors in nav in individual student html
+// TODO: Refactor to break main functions to smaller parts
 // TODO: New branch to work with Classes
