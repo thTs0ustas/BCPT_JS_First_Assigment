@@ -23,6 +23,8 @@ The main part of the body "<main></main>" gets dynamically
 all the HTML parts. -->
 
     <header class="align-content-center w-100">
+      <!-- the header consists of two parts. The left part (logo) which is the home button
+      and the rigth part the  navbar  -->
       <nav class="navbar navbar-expand-lg navbar-light p-lg-2">
         <a class="navbar-brand" href="#"
           ><img class="img-fluid logo" src="assets/stumbleupon.png" alt=""
@@ -141,6 +143,11 @@ all the HTML parts. -->
         </div>
       </nav>
     </header>
+    <!-- the main tag is empty at the start. The first time the index.html loads 
+      main gets populated with an html part given by javascript.
+      Every time we move to a new link through the navbar javascript changes
+      mains innerHTML accordingly. -->
+
     <main id="main"></main>
     <div class="footer-basic">
       <footer>
@@ -153,7 +160,7 @@ all the HTML parts. -->
         <p class="copyright">Private School © 2021</p>
       </footer>
     </div>
-    <!--    the project uses webpack, so it uses a bundled js file-->
+    <!--    the project uses webpack, so the js file is bundled-->
     <script
       defer
       src="src/bootstrap.bundle.min.js"

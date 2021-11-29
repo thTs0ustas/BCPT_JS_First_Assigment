@@ -4,7 +4,6 @@ import { aboutUsFn } from "./components/aboutUs";
 import { assignmentFn } from "./components/assignments";
 import { teacherFn, teacherEditFormFn } from "./components/trainers";
 import { studentFn, studentEditFormFn } from "./components/students";
-import { rootState } from "./state/rootState.js";
 
 //
 // Event on loading html file
